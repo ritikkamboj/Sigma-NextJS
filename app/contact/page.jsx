@@ -1,7 +1,13 @@
 import React from "react";
+import Script from "next/script";
 
 function Contact() {
-  return <div>This is the content of contact page </div>;
+  return (
+    <div>
+      <Script>{`alert("we are in contact page injecting our js ")`}</Script>
+      This is the content of contact page{" "}
+    </div>
+  );
 }
 
 export const metadata = {
