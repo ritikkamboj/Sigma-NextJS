@@ -3,19 +3,7 @@ import fs from "fs/promises";
 // import Navbar from "@;
 
 function Page() {
-  const data = fs.readFile(".gitignore");
-
-  console.log(data);
-  console.log("jai");
-
-  data.then((data2) => console.log(data2.toString()));
-
-  return (
-    <div>
-      <Navbar />
-      <p> I am an server component</p>
-    </div>
-  );
+  return <div>Its the home page</div>;
 }
 
 export default Page;
