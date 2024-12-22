@@ -1,7 +1,12 @@
 import React from "react";
 
-function contact() {
+function Contact() {
   return <div>This is the content of contact page </div>;
 }
 
-export default contact;
+export const metadata = {
+  title: "Contact Page",
+  description: "Now we are in Contact page ",
+};
+
+export default Contact;

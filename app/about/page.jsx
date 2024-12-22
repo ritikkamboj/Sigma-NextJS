@@ -1,6 +1,6 @@
 import React from "react";
 
-function page() {
+function About() {
   return (
     <div>
       <p className="text-xl"> We are in about page</p>
@@ -12,4 +12,9 @@ function page() {
   );
 }
 
-export default page;
+export const metadata = {
+  title: "About Page",
+  description: "Now we are in About page ",
+};
+
+export default About;
