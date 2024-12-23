@@ -1,20 +1,28 @@
-import Navbar from "@/component/Navbar";
-import fs from "fs/promises";
-// import Navbar from "@;
-import Image from "next/image";
+"use client";
 
 function Page() {
+  const data = {
+    name: "ritik",
+    work: "Developer",
+  };
+
+  async function handleClick() {
+    console.log("jai shree ram ");
+    const a = await fetch("/api/handler", {
+      method: "POST", // Use POST to create a new user
+      headers: {
+        "Content-Type": "application/json", // Important: Tell the server the data is in JSON format
+      },
+      body: JSON.stringify(data),
+    });
+    const res = await a.json();
+    console.log(res);
+  }
+
   return (
     <div>
-      <Image
-        alt="shinchan"
-        src={
-          "https://rukminim2.flixcart.com/image/850/1000/kl5hh8w0/poster/6/n/z/medium-cute-cartoon-wall-sticker-poster-interior-wall-poster-original-imagycg3dxbt2kms.jpeg?q=90&crop=false"
-        }
-        width={100}
-        height={100}
-      />
-      <p>Its the home page</p>
+      <p>We are sending data from here</p>
+      <button onClick={handleClick}>Click me</button>
     </div>
   );
 }
