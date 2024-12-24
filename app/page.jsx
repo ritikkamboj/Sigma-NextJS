@@ -1,30 +1,33 @@
 "use client";
+import React, { useRef } from "react";
+import { handleAction } from "./action/form";
 
-function Page() {
-  const data = {
-    name: "ritik",
-    work: "Developer",
-  };
-
-  async function handleClick() {
-    console.log("jai shree ram ");
-    const a = await fetch("/api/handler", {
-      method: "POST", // Use POST to create a new user
-      headers: {
-        "Content-Type": "application/json", // Important: Tell the server the data is in JSON format
-      },
-      body: JSON.stringify(data),
-    });
-    const res = await a.json();
-    console.log(res);
-  }
-
+function page() {
+  // handleAction();
+  const ref = useRef();
   return (
     <div>
-      <p>We are sending data from here</p>
-      <button onClick={handleClick}>Click me</button>
+      <form
+        ref={ref}
+        action={(e) => {
+          handleAction(e);
+          ref.current.reset();
+        }}
+      >
+        <div>
+          <label htmlFor="name">Name</label>
+          <input className="text-black" name="name" id="name" type="text" />
+        </div>
+        <div>
+          <label htmlFor="add">Address</label>
+          <input className="text-black" name="add" id="add" type="text" />
+        </div>
+        <div>
+          <button>Submit</button>
+        </div>
+      </form>
     </div>
   );
 }
 
-export default Page;
+export default page;
